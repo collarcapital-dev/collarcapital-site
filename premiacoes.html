@@ -3,10 +3,10 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Equipe | Collar Capital</title>
+<title>Premiações | Collar Capital</title>
 <link rel="stylesheet" href="style.css">
 </head>
-<body class="team-page">
+<body class="team-page awards-page">
 
 <!-- Custom cursor -->
 <div class="cursor" id="cursor"></div>
@@ -25,30 +25,56 @@
   </div>
 </nav>
 
-<main class="team-main">
-  <header class="team-header reveal">
-    <div class="section-label">Equipe</div>
-    <h1>Colaboradores Collar Capital</h1>
+<main class="team-main awards-main">
+  <header class="team-header awards-header reveal">
+    <h1>Premiações Collar Capital</h1>
   </header>
 
-  <div class="team-tabs reveal" aria-label="Filtrar equipe por localização">
-    <button class="team-tab is-active" type="button" data-team-location="sao-paulo">São Paulo</button>
-    <button class="team-tab" type="button" data-team-location="brasilia">Brasília</button>
-    <button class="team-tab" type="button" data-team-location="recife">Recife</button>
-    <button class="team-tab" type="button" data-team-location="rio-de-janeiro">Rio de Janeiro</button>
-    <button class="team-tab" type="button" data-team-location="marketing">Marketing</button>
-    <button class="team-tab" type="button" data-team-location="tecnologia">Tecnologia</button>
-    <button class="team-tab" type="button" data-team-location="rh">RH</button>
-    <button class="team-tab" type="button" data-team-location="mesa-de-produtos">Mesa de Produtos</button>
-    <button class="team-tab" type="button" data-team-location="adm">ADM</button>
-  </div>
+  <section class="team-grid awards-grid" aria-label="Premiações Collar Capital">
+    <article class="location-card team-card team-card-compact award-card reveal">
+      <div class="location-image">
+        <img src="images/cards/premios/performer irlanda.png" alt="Prêmio Best Performer BTG Pactual na Irlanda">
+      </div>
+      <div class="location-content">
+        <h3>Best Performer Internacional</h3>
+        <p>Reconhecimento internacional recebido na Irlanda, destacando a Collar Capital como Best Performer BTG Pactual.</p>
+      </div>
+    </article>
 
-  <section class="team-grid" aria-label="Membros da equipe" data-team-grid></section>
+    <article class="location-card team-card team-card-compact award-card reveal">
+      <div class="location-image">
+        <img src="images/cards/premios/performer br.png" alt="Prêmio Best Performer BTG Pactual Brasil">
+      </div>
+      <div class="location-content">
+        <h3>Best Performer Brasil</h3>
+        <p>Um reconhecimento que reforça a trajetória da Collar Capital entre os escritórios que mais se destacam em performance, crescimento e compromisso com o cliente dentro da rede BTG Pactual.</p>
+      </div>
+    </article>
+
+    <article class="location-card team-card team-card-compact award-card reveal">
+      <div class="location-image">
+        <img src="images/cards/premios/parceria btg.png" alt="Reconhecimento de parceria com o BTG Pactual">
+      </div>
+      <div class="location-content">
+        <h3>Parceria BTG Pactual</h3>
+        <p>Um reconhecimento que simboliza a renovação da nossa parceria com o BTG Pactual e a força de uma relação construída com confiança.</p>
+      </div>
+    </article>
+
+    <article class="location-card team-card team-card-compact award-card reveal">
+      <div class="location-image">
+        <img src="images/cards/premios/casa antiga.png" alt="Reconhecimento recebido na antiga casa da Collar Capital">
+      </div>
+      <div class="location-content">
+        <h3>Escritório Promissor</h3>
+        <p>Reconhecimento recebido ainda em nossa antiga casa, destacando a Collar Capital entre os escritórios promissores pela sua evolução, crescimento e qualidade no atendimento.</p>
+      </div>
+    </article>
+  </section>
 </main>
 
 <a class="nav-cta home-return" href="landing.html">Voltar para home</a>
 
-<!-- ═══ FOOTER ═══ -->
 <footer>
   <div class="footer-logo">
     <img src="images/collar-btg-branca.svg" alt="Collar BTG Logo" style="height: 32px; width: auto;">

@@ -52,14 +52,11 @@
           { name: 'Dante Sena', role: 'CEO', image: 'images/cards/saopaulo/dante.jpeg' },
           { name: 'Guilherme Marques', role: 'Sócio', image: 'images/cards/saopaulo/guimarques.jpeg' },
           { name: 'Otílio Neto', role: 'Sócio', image: 'images/cards/saopaulo/otilio.jpeg' },
-          { name: 'João Vieira', role: 'Assessor de Investimentos', image: 'images/cards/saopaulo/joaovieira.jpeg' },
           { name: 'Kaique Nascimento', role: 'Assessor de Investimentos', image: 'images/cards/saopaulo/kaique.jpeg' },
           { name: 'Alvaro Prates', role: 'Assessor de Investimentos', image: 'images/cards/saopaulo/alvaro.jpeg' },
           { name: 'Kauan Moroshima', role: 'Assessor de Investimentos', image: 'images/cards/saopaulo/kauan.jpeg' },
           { name: 'Vinicius Reis', role: 'Assessor de Investimentos', image: 'images/cards/saopaulo/viniciusreis.jpeg' },
           { name: 'Erivam Oliveira', role: 'Assessor de Investimentos', image: 'images/cards/saopaulo/erivam.jpeg' },
-          { name: 'Pedro Ramos', role: 'Assessor de Investimentos', image: 'images/cards/saopaulo/pedroramos.jpeg' },
-          { name: 'Vinicius Tucunduva', role: 'Assessor de Investimentos', image: 'images/cards/saopaulo/viniciustucunduva.jpeg' },
           { name: 'Henry Melo', role: 'Assessor de Investimentos', image: 'images/cards/saopaulo/henry.jpeg' }
         ]
       ]
@@ -86,14 +83,6 @@
           { name: 'Leonardo Leahy', role: 'Advogado', image: 'images/cards/recife/leonardo.jpeg' },
           { name: 'Eduardo Gadelha', role: 'Assessor de investimentos', image: 'images/cards/recife/edu.jpeg' },
           { name: 'João Guilherme', role: 'Assessor de investimentos', image: 'images/cards/recife/joao guilherme.png' }
-        ]
-      ]
-    },
-    'rio-de-janeiro': {
-      label: 'Rio de Janeiro',
-      groups: [
-        [
-          { name: 'Warlen Sousa', role: 'Assessor de investimentos', image: 'images/cards/rj/war.jpeg' }
         ]
       ]
     },

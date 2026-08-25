@@ -49,15 +49,16 @@
       groups: [
         [
           { name: 'Paulo Casimiro', role: 'CEO', image: 'images/cards/saopaulo/paulocasimiro.JPG' },
-          { name: 'Dante Sena', role: 'CEO', image: 'images/cards/saopaulo/dante.jpeg' },
-          { name: 'Guilherme Marques', role: 'Sócio', image: 'images/cards/saopaulo/guimarques.jpeg' },
+          { name: 'Dante Sena', role: 'CEO', image: 'images/cards/saopaulo/dante.jpg' },
+          { name: 'Guilherme Marques', role: 'Sócio', image: 'images/cards/saopaulo/guimarques.jpg' },
           { name: 'Otílio Neto', role: 'Sócio', image: 'images/cards/saopaulo/otilio.jpeg' },
           { name: 'Kaique Nascimento', role: 'Assessor de Investimentos', image: 'images/cards/saopaulo/kaique.jpeg' },
-          { name: 'Alvaro Prates', role: 'Assessor de Investimentos', image: 'images/cards/saopaulo/alvaro.jpeg' },
-          { name: 'Kauan Moroshima', role: 'Assessor de Investimentos', image: 'images/cards/saopaulo/kauan.jpeg' },
+          { name: 'Alvaro Prates', role: 'Assessor de Investimentos', image: 'images/cards/saopaulo/alvaro.jpg' },
+          { name: 'Kauan Moroshima', role: 'Assessor de Investimentos', image: 'images/cards/saopaulo/kauan.jpg' },
           { name: 'Vinicius Reis', role: 'Assessor de Investimentos', image: 'images/cards/saopaulo/viniciusreis.jpeg' },
-          { name: 'Erivam Oliveira', role: 'Assessor de Investimentos', image: 'images/cards/saopaulo/erivam.jpeg' },
-          { name: 'Henry Melo', role: 'Assessor de Investimentos', image: 'images/cards/saopaulo/henry.jpeg' }
+          { name: 'Erivam Oliveira', role: 'Assessor de Investimentos', image: 'images/cards/saopaulo/erivam.jpeg', imagePosition: 'center top' },
+          { name: 'Henry Melo', role: 'Assessor de Investimentos', image: 'images/cards/saopaulo/henry-optimized.png' },
+          { name: 'Rayssa Silva', role: 'Assessora de Investimentos', image: 'images/cards/saopaulo/rayssa.jpg' }
         ]
       ]
     },
@@ -90,10 +91,10 @@
       label: 'Marketing',
       groups: [
         [
-          { name: 'Gustavo Conceição', role: 'CMO / Designer / Gestor de Tráfego', image: 'images/cards/saopaulo/gustavoconceicao.png' },
-          { name: 'Gustavo Chaves', role: 'Diretor de Transmissão / Editor de Vídeos', image: 'images/cards/saopaulo/gustavochaves.jpeg' },
-          { name: 'Isabelli Saraiva', role: 'Edição de vídeos / Eventos', image: 'images/cards/saopaulo/isabelli.jpeg' },
-          { name: 'Diego Dias', role: 'Copywriter / Analista de Tráfego', image: 'images/cards/saopaulo/diegodias.jpeg' }
+          { name: 'Isabela Luz', role: 'Head de Marketing / Eventos', image: 'images/cards/saopaulo/isaluz.jpg' },
+          { name: 'Gustavo Chaves', role: 'Diretor de Transmissão / Editor de Vídeos', image: 'images/cards/saopaulo/gustavochaves.jpg' },
+          { name: 'Isabelli Saraiva', role: 'Edição de vídeos / Eventos', image: 'images/cards/saopaulo/isabelli.jpg' },
+          { name: 'Diego Dias', role: 'Copywriter / Analista de Tráfego', image: 'images/cards/saopaulo/diego.jpg' }
         ]
       ]
     },
@@ -102,8 +103,8 @@
       groups: [
         [
           { name: 'Guilherme Faria', role: 'CTO / Desenvolvedor', image: 'images/cards/saopaulo/guifaria.jpeg' },
-          { name: 'Rodnei Andrade', role: 'Analista de dados', image: 'images/cards/saopaulo/rodnei.jpeg' },
-          { name: 'Philippe Jacques', role: 'UX Designer', image: 'images/cards/saopaulo/philippe.jpeg' }
+          { name: 'Rodnei Andrade', role: 'Analista de dados', image: 'images/cards/saopaulo/rodinho.jpg' },
+          { name: 'Philippe Jacques', role: 'UX Designer', image: 'images/cards/saopaulo/phil.jpg' }
         ]
       ]
     },
@@ -111,9 +112,9 @@
       label: 'RH',
       groups: [
         [
-          { name: 'Camily Raquel', role: 'Analista de RH', image: 'images/cards/saopaulo/camily.jpeg' },
+          { name: 'Camily Raquel', role: 'Analista de RH', image: 'images/cards/saopaulo/camily.jpg' },
           { name: 'Rafael Bumbeers', role: 'Diretor de RH', image: 'images/cards/saopaulo/bumbeers.png' },
-          { name: 'Jefferson', role: 'Headhunter', image: 'images/cards/saopaulo/jefferson.jpeg' }
+          { name: 'Jefferson', role: 'Headhunter', image: 'images/cards/saopaulo/jeff.jpg' }
         ]
       ]
     },
@@ -121,8 +122,8 @@
       label: 'Mesa de Produtos',
       groups: [
         [
-          { name: 'Wilson Porfirio', role: 'Gerente Mesa Banking', image: 'images/cards/saopaulo/wilson.jpeg' },
-          { name: 'Gustavo Pereira', role: 'Mesa Renda Variável', image: 'images/cards/saopaulo/gustavopereira.jpeg' }
+          { name: 'Wilson Porfirio', role: 'Gerente Mesa Banking', image: 'images/cards/saopaulo/wilson.jpg' },
+          { name: 'Gustavo Pereira', role: 'Mesa Renda Variável', image: 'images/cards/saopaulo/guluz.jpg' }
         ]
       ]
     },
@@ -130,10 +131,19 @@
       label: 'ADM',
       groups: [
         [
-          { name: 'Cristina Novaes', role: 'ADM', image: 'images/cards/saopaulo/cristina.jpeg' }
+          { name: 'Cristina Novaes', role: 'ADM', image: 'images/cards/saopaulo/cris.jpg' }
         ]
       ]
     }
+  };
+
+  teamByLocation['assessores-btg'] = {
+    label: 'Assessores credenciados ao BTG',
+    groups: [[
+      ...teamByLocation['sao-paulo'].groups.flat(),
+      ...teamByLocation.brasilia.groups.flat(),
+      ...teamByLocation.recife.groups.flat()
+    ].filter(member => /assessor(?:a|es)? de investimentos/i.test(member.role))]
   };
 
   function createTeamCard(member, locationLabel) {
@@ -147,6 +157,7 @@
       const image = document.createElement('img');
       image.src = member.image;
       image.alt = member.name;
+      if (member.imagePosition) image.style.objectPosition = member.imagePosition;
 
       imageWrap.append(image);
       card.append(imageWrap);

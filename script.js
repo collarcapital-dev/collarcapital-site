@@ -50,7 +50,7 @@
         [
           { name: 'Paulo Casimiro', role: 'CEO', image: 'images/cards/saopaulo/paulocasimiro.JPG' },
           { name: 'Dante Sena', role: 'CEO', image: 'images/cards/saopaulo/dante.jpg' },
-          { name: 'Guilherme Marques', role: 'Sócio', image: 'images/cards/saopaulo/guimarques.jpg' },
+          { name: 'Guilherme Marques', role: 'Sócio', image: 'images/cards/saopaulo/guimarques.JPG' },
           { name: 'Otílio Neto', role: 'Sócio', image: 'images/cards/saopaulo/otilio.jpeg' },
           { name: 'Kaique Nascimento', role: 'Assessor de Investimentos', image: 'images/cards/saopaulo/kaique.jpeg' },
           { name: 'Alvaro Prates', role: 'Assessor de Investimentos', image: 'images/cards/saopaulo/alvaro.jpg' },

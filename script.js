@@ -1,323 +1,65 @@
-﻿// ── Cursor
-  const cursor = document.getElementById('cursor');
-  const ring   = document.getElementById('cursorRing');
-  let mx = 0, my = 0, rx = 0, ry = 0;
+const header = document.querySelector('[data-header]');
+const menuToggle = document.querySelector('[data-menu-toggle]');
+const mobileMenu = document.querySelector('[data-mobile-menu]');
+const navLinks = [...document.querySelectorAll('.desktop-nav a, .mobile-menu a[href^="#"]')];
+const sections = [...document.querySelectorAll('main section[id]')];
+const toast = document.querySelector('[data-toast]');
+let toastTimer;
 
-  document.addEventListener('mousemove', e => {
-    mx = e.clientX; my = e.clientY;
-    cursor.style.left = mx + 'px';
-    cursor.style.top  = my + 'px';
+function updateHeader() {
+  header?.classList.toggle('is-scrolled', window.scrollY > 28);
+}
+
+function closeMenu() {
+  menuToggle?.setAttribute('aria-expanded', 'false');
+  menuToggle?.setAttribute('aria-label', 'Abrir menu');
+  mobileMenu?.classList.remove('is-open');
+  document.body.classList.remove('menu-open');
+}
+
+menuToggle?.addEventListener('click', () => {
+  const isOpen = menuToggle.getAttribute('aria-expanded') === 'true';
+  menuToggle.setAttribute('aria-expanded', String(!isOpen));
+  menuToggle.setAttribute('aria-label', isOpen ? 'Abrir menu' : 'Fechar menu');
+  mobileMenu?.classList.toggle('is-open', !isOpen);
+  document.body.classList.toggle('menu-open', !isOpen);
+});
+
+navLinks.forEach((link) => link.addEventListener('click', closeMenu));
+window.addEventListener('scroll', updateHeader, { passive: true });
+updateHeader();
+
+const revealObserver = new IntersectionObserver((entries, observer) => {
+  entries.forEach((entry) => {
+    if (!entry.isIntersecting) return;
+    entry.target.classList.add('is-visible');
+    observer.unobserve(entry.target);
   });
+}, { rootMargin: '0px 0px -8% 0px', threshold: 0.08 });
 
-  function animateRing() {
-    rx += (mx - rx) * 0.12;
-    ry += (my - ry) * 0.12;
-    ring.style.left = rx + 'px';
-    ring.style.top  = ry + 'px';
-    requestAnimationFrame(animateRing);
-  }
-  animateRing();
+document.querySelectorAll('.reveal').forEach((element) => revealObserver.observe(element));
 
-  function bindCursorHover(root = document) {
-    root.querySelectorAll('a, button, input, .service-card, .location-card, .team-card, .team-tab').forEach(el => {
-      if (el.dataset.cursorBound) return;
-      el.dataset.cursorBound = 'true';
-
-      el.addEventListener('mouseenter', () => {
-        cursor.style.width  = '20px';
-        cursor.style.height = '20px';
-        ring.style.width    = '60px';
-        ring.style.height   = '60px';
-      });
-      el.addEventListener('mouseleave', () => {
-        cursor.style.width  = '12px';
-        cursor.style.height = '12px';
-        ring.style.width    = '40px';
-        ring.style.height   = '40px';
-      });
+const sectionObserver = new IntersectionObserver((entries) => {
+  entries.forEach((entry) => {
+    if (!entry.isIntersecting) return;
+    navLinks.forEach((link) => {
+      const target = link.getAttribute('href')?.slice(1);
+      link.classList.toggle('active', target === entry.target.id);
     });
-  }
-
-  bindCursorHover();
-
-  // ── Team location tabs
-  const teamTabs = Array.from(document.querySelectorAll('.team-tab'));
-  const teamGrid = document.querySelector('[data-team-grid]');
-  const teamByLocation = {
-    'sao-paulo': {
-      label: 'São Paulo',
-      groups: [
-        [
-          { name: 'Paulo Casimiro', role: 'CEO', image: 'images/cards/saopaulo/paulocasimiro.JPG' },
-          { name: 'Dante Sena', role: 'CEO', image: 'images/cards/saopaulo/dante.jpg' },
-          { name: 'Guilherme Marques', role: 'Sócio', image: 'images/cards/saopaulo/guimarques.JPG' },
-          { name: 'Otílio Neto', role: 'Sócio', image: 'images/cards/saopaulo/otilio.jpeg' },
-          { name: 'Kaique Nascimento', role: 'Assessor de Investimentos', image: 'images/cards/saopaulo/kaique.jpeg' },
-          { name: 'Alvaro Prates', role: 'Assessor de Investimentos', image: 'images/cards/saopaulo/alvaro.jpg' },
-          { name: 'Kauan Moroshima', role: 'Assessor de Investimentos', image: 'images/cards/saopaulo/kauan.jpg' },
-          { name: 'Vinicius Reis', role: 'Assessor de Investimentos', image: 'images/cards/saopaulo/viniciusreis.jpeg' },
-          { name: 'Erivam Oliveira', role: 'Assessor de Investimentos', image: 'images/cards/saopaulo/erivam.jpeg', imagePosition: 'center top' },
-          { name: 'Henry Melo', role: 'Assessor de Investimentos', image: 'images/cards/saopaulo/henry-optimized.png' },
-          { name: 'Rayssa Silva', role: 'Assessora de Investimentos', image: 'images/cards/saopaulo/rayssa.jpg' }
-        ]
-      ]
-    },
-    brasilia: {
-      label: 'Brasília',
-      groups: [
-        [
-          { name: 'André Torres', role: 'Sócio Fundador | Assessor de investimentos', image: 'images/cards/brasilia/andre.jpeg' },
-          { name: 'Bruna Trindade', role: 'Sócia / Assessora de investimentos', image: 'images/cards/brasilia/bruna.jpeg' },
-          { name: 'Dayane Costa', role: 'Sócia / Assessora de investimentos', image: 'images/cards/brasilia/day.jpeg' },
-          { name: 'Raissa Corsini', role: 'Sócia / Assessora de investimentos', image: 'images/cards/brasilia/raissa.png' }
-        ]
-      ]
-    },
-    recife: {
-      label: 'Recife',
-      groups: [
-        [
-          { name: 'Lucas Chiappeta', role: 'Sócio / Assessor de investimentos', image: 'images/cards/recife/lucas c.jpeg' },
-          { name: 'Rudolf Fehr', role: 'Sócio / Assessor de investimentos', image: 'images/cards/recife/rudolf.jpeg' },
-          { name: 'Felipe Danzi', role: 'Assessor de investimentos', image: 'images/cards/recife/felipe danzi.jpeg' },
-          { name: 'Pedro Assis', role: 'Assessor de investimentos', image: 'images/cards/recife/pedro assis.jpeg' },
-          { name: 'Leonardo Leahy', role: 'Advogado', image: 'images/cards/recife/leonardo.jpeg' },
-          { name: 'Eduardo Gadelha', role: 'Assessor de investimentos', image: 'images/cards/recife/edu.jpeg' },
-          { name: 'João Guilherme', role: 'Assessor de investimentos', image: 'images/cards/recife/joao guilherme.png' }
-        ]
-      ]
-    },
-    marketing: {
-      label: 'Marketing',
-      groups: [
-        [
-          { name: 'Isabela Luz', role: 'Head de Marketing / Eventos', image: 'images/cards/saopaulo/isaluz.jpg' },
-          { name: 'Gustavo Chaves', role: 'Diretor de Transmissão / Editor de Vídeos', image: 'images/cards/saopaulo/gustavochaves.jpg' },
-          { name: 'Isabelli Saraiva', role: 'Edição de vídeos / Eventos', image: 'images/cards/saopaulo/isabelli.jpg' },
-          { name: 'Diego Dias', role: 'Copywriter / Analista de Tráfego', image: 'images/cards/saopaulo/diego.jpg' }
-        ]
-      ]
-    },
-    tecnologia: {
-      label: 'Tecnologia',
-      groups: [
-        [
-          { name: 'Guilherme Faria', role: 'CTO / Desenvolvedor', image: 'images/cards/saopaulo/guifaria.jpeg' },
-          { name: 'Rodnei Andrade', role: 'Analista de dados', image: 'images/cards/saopaulo/rodinho.jpg' },
-          { name: 'Philippe Jacques', role: 'UX Designer', image: 'images/cards/saopaulo/phil.jpg' }
-        ]
-      ]
-    },
-    rh: {
-      label: 'RH',
-      groups: [
-        [
-          { name: 'Camily Raquel', role: 'Analista de RH', image: 'images/cards/saopaulo/camily.jpg' },
-          { name: 'Rafael Bumbeers', role: 'Diretor de RH', image: 'images/cards/saopaulo/bumbeers.png' },
-          { name: 'Jefferson', role: 'Headhunter', image: 'images/cards/saopaulo/jeff.jpg' }
-        ]
-      ]
-    },
-    'mesa-de-produtos': {
-      label: 'Mesa de Produtos',
-      groups: [
-        [
-          { name: 'Wilson Porfirio', role: 'Gerente Mesa Banking', image: 'images/cards/saopaulo/wilson.jpg' },
-          { name: 'Gustavo Pereira', role: 'Mesa Renda Variável', image: 'images/cards/saopaulo/guluz.jpg' }
-        ]
-      ]
-    },
-    adm: {
-      label: 'ADM',
-      groups: [
-        [
-          { name: 'Cristina Novaes', role: 'ADM', image: 'images/cards/saopaulo/cris.jpg' }
-        ]
-      ]
-    }
-  };
-
-  teamByLocation['assessores-btg'] = {
-    label: 'Assessores credenciados ao BTG',
-    groups: [[
-      ...teamByLocation['sao-paulo'].groups.flat(),
-      ...teamByLocation.brasilia.groups.flat(),
-      ...teamByLocation.recife.groups.flat()
-    ].filter(member => /assessor(?:a|es)? de investimentos/i.test(member.role))]
-  };
-
-  function createTeamCard(member, locationLabel) {
-    const card = document.createElement('article');
-    card.className = 'location-card team-card team-card-compact';
-
-    if (member.image) {
-      const imageWrap = document.createElement('div');
-      imageWrap.className = 'location-image';
-
-      const image = document.createElement('img');
-      image.src = member.image;
-      image.alt = member.name;
-      if (member.imagePosition) image.style.objectPosition = member.imagePosition;
-
-      imageWrap.append(image);
-      card.append(imageWrap);
-    }
-
-    const content = document.createElement('div');
-    content.className = 'location-content';
-
-    const location = document.createElement('span');
-    location.className = 'team-location';
-    location.textContent = locationLabel;
-
-    const name = document.createElement('h3');
-    name.textContent = member.name;
-
-    const role = document.createElement('p');
-    role.textContent = member.role;
-
-    content.append(location, name, role);
-    card.append(content);
-
-    return card;
-  }
-
-  function renderTeamLocation(locationKey) {
-    const location = teamByLocation[locationKey];
-    if (!location || !teamGrid) return;
-
-    teamTabs.forEach(tab => {
-      tab.classList.toggle('is-active', tab.dataset.teamLocation === locationKey);
-    });
-
-    teamGrid.innerHTML = '';
-    teamGrid.classList.toggle('has-groups', location.groups.length > 1);
-
-    location.groups.forEach((group, groupIndex) => {
-      if (groupIndex > 0) {
-        const divider = document.createElement('div');
-        divider.className = 'team-divider';
-        divider.setAttribute('aria-hidden', 'true');
-        teamGrid.append(divider);
-      }
-
-      if (location.groups.length === 1) {
-        group.forEach(member => {
-          teamGrid.append(createTeamCard(member, location.label));
-        });
-        return;
-      }
-
-      const groupEl = document.createElement('div');
-      groupEl.className = 'team-group';
-
-      group.forEach(member => {
-        groupEl.append(createTeamCard(member, location.label));
-      });
-
-      teamGrid.append(groupEl);
-    });
-
-    bindCursorHover(teamGrid);
-  }
-
-  if (teamTabs.length && teamGrid) {
-    teamTabs.forEach(tab => {
-      tab.addEventListener('click', () => {
-        renderTeamLocation(tab.dataset.teamLocation);
-      });
-    });
-
-    renderTeamLocation(teamTabs.find(tab => tab.classList.contains('is-active'))?.dataset.teamLocation || teamTabs[0].dataset.teamLocation);
-  }
-
-  // ── Testimonials carousel
-  const testimonialCards = Array.from(document.querySelectorAll('.testimonial-card'));
-  const testimonialPrev = document.querySelector('[data-testimonial-prev]');
-  const testimonialNext = document.querySelector('[data-testimonial-next]');
-  let testimonialIndex = 0;
-
-  function renderTestimonials() {
-    if (!testimonialCards.length) return;
-
-    const total = testimonialCards.length;
-    testimonialCards.forEach((card, index) => {
-      card.classList.remove('is-active', 'is-prev', 'is-next');
-      if (index === testimonialIndex) card.classList.add('is-active');
-      if (index === (testimonialIndex - 1 + total) % total) card.classList.add('is-prev');
-      if (index === (testimonialIndex + 1) % total) card.classList.add('is-next');
-    });
-  }
-
-  if (testimonialCards.length) {
-    testimonialPrev?.addEventListener('click', () => {
-      testimonialIndex = (testimonialIndex - 1 + testimonialCards.length) % testimonialCards.length;
-      renderTestimonials();
-    });
-
-    testimonialNext?.addEventListener('click', () => {
-      testimonialIndex = (testimonialIndex + 1) % testimonialCards.length;
-      renderTestimonials();
-    });
-
-    renderTestimonials();
-  }
-
-  // ── Scroll reveal
-  const reveals = document.querySelectorAll('.reveal');
-  const observer = new IntersectionObserver(entries => {
-    entries.forEach((entry, i) => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('in-view');
-        observer.unobserve(entry.target);
-      }
-    });
-  }, { threshold: 0.12 });
-
-  reveals.forEach(el => observer.observe(el));
-
-  const nav = document.querySelector('nav');
-  function updateNavState() {
-    if (nav) nav.classList.toggle('is-scrolled', window.scrollY > 16);
-  }
-  updateNavState();
-  window.addEventListener('scroll', updateNavState, { passive: true });
-
-  // ── Parallax hero arch
-  const arch = document.querySelector('.hero-arch');
-  window.addEventListener('scroll', () => {
-    const y = window.scrollY;
-    if (arch) arch.style.transform = `translateY(${y * 0.25}px)`;
   });
+}, { rootMargin: '-38% 0px -55% 0px', threshold: 0 });
 
-  // ── Phone mask
-  const phoneInput = document.getElementById('lead-phone');
-  if (phoneInput) {
-    phoneInput.addEventListener('input', () => {
-      const digits = phoneInput.value.replace(/\D/g, '').slice(0, 11);
-      const ddd = digits.slice(0, 2);
-      const firstPart = digits.length > 10 ? digits.slice(2, 7) : digits.slice(2, 6);
-      const secondPart = digits.length > 10 ? digits.slice(7, 11) : digits.slice(6, 10);
+sections.forEach((section) => sectionObserver.observe(section));
 
-      let formatted = '';
-      if (ddd) formatted = `(${ddd}`;
-      if (digits.length >= 2) formatted += ') ';
-      if (firstPart) formatted += firstPart;
-      if (secondPart) formatted += `-${secondPart}`;
+document.querySelectorAll('[data-client-link]').forEach((button) => {
+  button.addEventListener('click', () => {
+    clearTimeout(toastTimer);
+    toast?.classList.add('show');
+    toastTimer = setTimeout(() => toast?.classList.remove('show'), 2800);
+    closeMenu();
+  });
+});
 
-      phoneInput.value = formatted;
-    });
-  }
-
-  const investmentInput = document.getElementById('lead-investment');
-  if (investmentInput) {
-    investmentInput.addEventListener('input', () => {
-      const digits = investmentInput.value.replace(/\D/g, '');
-      const amount = Number(digits) / 100;
-
-      investmentInput.value = amount.toLocaleString('pt-BR', {
-        style: 'currency',
-        currency: 'BRL'
-      });
-    });
-  }
+document.addEventListener('keydown', (event) => {
+  if (event.key === 'Escape') closeMenu();
+});

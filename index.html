@@ -1,16 +1,121 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="pt-BR">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta http-equiv="refresh" content="0; url=landing.html">
-<title>Collar Capital</title>
-<link rel="icon" type="image/png" href="images/Group%20(2).png">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0a0e12">
+  <meta name="description" content="Collar Capital — patrimônio, estratégia e conexões em um novo horizonte.">
+  <title>Collar Capital</title>
+  <link rel="icon" type="image/svg+xml" href="images/figma/favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<script>
-  window.location.replace('landing.html');
-</script>
-<a href="landing.html">Abrir Collar Capital</a>
+  <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
+
+  <header class="site-header" data-header>
+    <div class="header-inner">
+      <a class="brand" href="#inicio" aria-label="Collar Capital — início">
+        <img src="images/figma/logo.svg" alt="Collar Capital" width="126" height="53">
+      </a>
+      <nav class="desktop-nav" aria-label="Navegação principal">
+        <a href="#a-collar">A Collar</a><a href="#ecossistema">Como fazemos</a><a href="#solucoes">Soluções</a><a href="#inteligencia">Inteligência</a><a href="#lideranca">Insights</a>
+      </nav>
+      <div class="header-actions">
+        <button class="client-link" type="button" data-client-link><img src="images/figma/user.svg" alt="" width="16" height="16"><span>Área do cliente</span></button>
+        <span class="header-divider" aria-hidden="true"></span>
+        <a class="button button-outline button-small" href="https://www.instagram.com/collarcapital/" target="_blank" rel="noopener noreferrer">Fale com a Collar</a>
+      </div>
+      <button class="menu-toggle" type="button" aria-label="Abrir menu" aria-expanded="false" aria-controls="mobile-menu" data-menu-toggle><span></span><span></span></button>
+    </div>
+    <nav class="mobile-menu" id="mobile-menu" aria-label="Navegação mobile" data-mobile-menu>
+      <a href="#a-collar">A Collar</a><a href="#ecossistema">Como fazemos</a><a href="#solucoes">Soluções</a><a href="#inteligencia">Inteligência</a><a href="#lideranca">Insights</a>
+      <button type="button" data-client-link>Área do cliente</button>
+      <a class="button button-outline" href="https://www.instagram.com/collarcapital/" target="_blank" rel="noopener noreferrer">Fale com a Collar</a>
+    </nav>
+  </header>
+
+  <main id="conteudo">
+    <section class="hero" id="inicio" aria-labelledby="hero-title">
+      <div class="hero-media" aria-hidden="true"></div><div class="hero-shade" aria-hidden="true"></div>
+      <div class="hero-content reveal">
+        <h1 id="hero-title">Patrimônio,<br>estratégia e<br>conexões em um<br><em>novo horizonte.</em></h1>
+        <p>Uma estrutura criada para transformar<br class="desktop-only"> capital em oportunidades, com visão,<br class="desktop-only"> inteligência e sofisticação.</p>
+        <div class="hero-buttons">
+          <a class="button button-primary" href="#a-collar">Conheça a Collar <img src="images/figma/arrow-dark.svg" alt="" width="16" height="16"></a>
+          <a class="button button-secondary" href="https://www.instagram.com/collarcapital/" target="_blank" rel="noopener noreferrer">Fale com nossa equipe</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="about" id="a-collar" aria-label="A Collar">
+      <div class="about-media" aria-hidden="true"></div><div class="about-shade" aria-hidden="true"></div>
+      <div class="about-copy reveal">
+        <p>Somos um escritório independente que <strong>conecta patrimônio, negócios e oportunidades</strong> para estruturar o que vem depois.</p>
+        <p>Atuamos ao lado de pessoas, famílias, empresários e empresas em decisões importantes, com <strong>visão integrada</strong> e acesso a especialistas, estruturas e oportunidades.</p>
+        <p>Nossa independência nos dá liberdade para analisar caminhos e construir estratégias <strong>alinhadas ao que realmente importa</strong> para você, hoje e no futuro.</p>
+        <span class="gold-rule" aria-hidden="true"></span>
+      </div>
+    </section>
+
+    <section class="section ecosystem" id="ecossistema" aria-labelledby="ecosystem-title">
+      <div class="section-intro reveal">
+        <div class="intro-title"><p class="eyebrow">NOSSO ECOSSISTEMA</p><h2 id="ecosystem-title">Uma estrutura completa<br>para decisões que geram<br><em>valor em todas as frentes.</em></h2></div>
+        <p class="intro-copy">Integramos soluções e inteligência para cuidar do patrimônio, dos negócios e das oportunidades que conectam você ao futuro.</p>
+      </div>
+      <div class="ecosystem-grid">
+        <article class="ecosystem-card reveal"><div><h3>WEALTH</h3><ul><li>Investimentos</li><li>Produtos Bancários</li><li>Dolarização</li><li>Produtos Alternativos</li></ul></div><div><p>Estratégias integradas para potencializar, proteger e perpetuar seu patrimônio.</p><a href="#solucoes">Saiba mais <img src="images/figma/arrow-gold.svg" alt="" width="12" height="12"></a></div></article>
+        <article class="ecosystem-card reveal"><div><h3>BUSINESS</h3><ul><li>Oportunidades e Soluções</li><li>Estrutura de Capital</li><li>SCP</li><li>Tecnologia whitelabel b2b</li></ul></div><div><p>Negócios estruturados para crescer e gerar valor.</p><a href="#solucoes">Saiba mais <img src="images/figma/arrow-gold.svg" alt="" width="12" height="12"></a></div></article>
+        <article class="ecosystem-card reveal"><div><h3>GLOBAL</h3><ul><li>Offshore</li><li>Câmbio</li><li>Investimentos internacionais</li></ul></div><div><p>Conectamos você às melhores oportunidades no Brasil e no mundo.</p><a href="#solucoes">Saiba mais <img src="images/figma/arrow-gold.svg" alt="" width="12" height="12"></a></div></article>
+        <article class="ecosystem-card reveal"><div><h3>INTELLIGENCE</h3><ul><li>Conteúdo</li><li>Eventos</li><li>Insights</li><li>Conhecimento</li></ul></div><div><p>Informação de qualidade e análises exclusivas para decisões mais estratégicas e seguras.</p><a href="#inteligencia">Saiba mais <img src="images/figma/arrow-gold.svg" alt="" width="12" height="12"></a></div></article>
+        <article class="ecosystem-card reveal"><div><h3>CIRCLE</h3><ul><li>Networking</li><li>Experiências</li><li>Conexões</li></ul></div><div><p>Relacionamentos que geram oportunidades, parcerias e experiências únicas.</p><a href="#lideranca">Saiba mais <img src="images/figma/arrow-gold.svg" alt="" width="12" height="12"></a></div></article>
+      </div>
+      <img class="wave" src="images/figma/wave.png" alt="" aria-hidden="true">
+    </section>
+
+    <section class="section solutions" id="solucoes" aria-labelledby="solutions-title">
+      <div class="section-intro reveal">
+        <div class="intro-title"><p class="eyebrow">PARA QUEM É A COLLAR</p><h2 id="solutions-title">Soluções para diferentes<br>momentos e objetivos.</h2></div>
+        <p class="intro-copy">Estrutura, inteligência e relacionamento para acompanhar você e o que realmente importa.</p>
+      </div>
+      <div class="solutions-grid">
+        <article class="solution-card reveal" style="--card-image:url('images/figma/solution-people.png')"><div><img class="solution-icon" src="images/figma/icon-person.svg" alt="" width="24" height="24"><h3>Pessoas</h3><p>Decisões patrimoniais<br>e financeiras.</p></div><a href="#inteligencia" aria-label="Conheça as soluções para pessoas"><img src="images/figma/arrow-gold.svg" alt="" width="14" height="14"></a></article>
+        <article class="solution-card reveal" style="--card-image:url('images/figma/solution-families.png')"><div><img class="solution-icon" src="images/figma/icon-family.svg" alt="" width="24" height="24"><h3>Famílias</h3><p>Preservação, sucesso e continuidade.</p></div><a href="#inteligencia" aria-label="Conheça as soluções para famílias"><img src="images/figma/arrow-gold.svg" alt="" width="14" height="14"></a></article>
+        <article class="solution-card reveal" style="--card-image:url('images/figma/solution-entrepreneurs.png')"><div><img class="solution-icon" src="images/figma/icon-briefcase.svg" alt="" width="24" height="24"><h3>Empresários</h3><p>Patrimônio pessoal<br>+ negócios.</p></div><a href="#inteligencia" aria-label="Conheça as soluções para empresários"><img src="images/figma/arrow-gold.svg" alt="" width="14" height="14"></a></article>
+        <article class="solution-card reveal" style="--card-image:url('images/figma/solution-companies.png')"><div><img class="solution-icon" src="images/figma/icon-building.svg" alt="" width="24" height="24"><h3>Empresas</h3><p>Soluções financeiras<br>e estratégicas.</p></div><a href="#inteligencia" aria-label="Conheça as soluções para empresas"><img src="images/figma/arrow-gold.svg" alt="" width="14" height="14"></a></article>
+      </div>
+    </section>
+
+    <section class="section intelligence" id="inteligencia" aria-labelledby="intelligence-title">
+      <div class="section-intro reveal">
+        <div class="intro-title"><p class="eyebrow">COLLAR INTELLIGENCE</p><h2 id="intelligence-title">Inteligência que acompanha<br>o mercado e antecipa movimentos.</h2></div>
+        <p class="intro-copy">Conteúdo, análises e conversas que geram perspectiva para decisões mais estratégicas.</p>
+      </div>
+      <div class="intelligence-grid">
+        <article class="intelligence-card reveal"><img class="intelligence-image" src="images/figma/intelligence-radar.png" alt="Apresentação de análise de mercado"><div class="intelligence-body"><img class="intelligence-icon" src="images/figma/icon-radar.svg" alt="" width="24" height="24"><h3>Radar Collar</h3><p>Um resumo dos principais acontecimentos do mercado na última semana e os impactos para investidores.</p><a href="#lideranca">Saiba mais <img src="images/figma/arrow-gold.svg" alt="" width="14" height="14"></a></div></article>
+        <article class="intelligence-card reveal"><img class="intelligence-image" src="images/figma/intelligence-insights.png" alt="Profissional acompanhando gráficos do mercado"><div class="intelligence-body"><img class="intelligence-icon" src="images/figma/icon-chart.svg" alt="" width="24" height="24"><h3>Collar Insights</h3><p>Projeções, cenário atual do mercado, estratégias para carteiras e insights exclusivos para nossos clientes e parceiros.</p><a href="#lideranca">Saiba mais <img src="images/figma/arrow-gold.svg" alt="" width="14" height="14"></a></div></article>
+        <article class="intelligence-card reveal"><img class="intelligence-image" src="images/figma/intelligence-podcast.png" alt="Apresentador em estúdio de podcast"><div class="intelligence-body"><img class="intelligence-icon" src="images/figma/icon-mic.svg" alt="" width="24" height="24"><h3>Podcast</h3><p>Conversas com empresários, especialistas e líderes do mercado sobre tendências, negócios e o futuro das finanças.</p><a href="#lideranca">Saiba mais <img src="images/figma/arrow-gold.svg" alt="" width="14" height="14"></a></div></article>
+        <article class="intelligence-card reveal"><img class="intelligence-image" src="images/figma/intelligence-news.png" alt="Profissional trabalhando em uma biblioteca"><div class="intelligence-body"><img class="intelligence-icon" src="images/figma/icon-news.svg" alt="" width="24" height="24"><h3>Collar News</h3><p>Artigos e análises sobre o mercado, economia e investimentos, produzidos para informar e gerar clareza.</p><a href="#lideranca">Saiba mais <img src="images/figma/arrow-gold.svg" alt="" width="14" height="14"></a></div></article>
+      </div>
+      <a class="button button-outline intelligence-cta reveal" href="#lideranca">Explore nossa inteligência <img src="images/figma/arrow-gold.svg" alt="" width="16" height="16"></a>
+    </section>
+
+    <section class="section leadership" id="lideranca" aria-labelledby="leadership-title">
+      <div class="section-intro leadership-intro reveal">
+        <div class="intro-title"><p class="eyebrow">LIDERANÇA</p><h2 id="leadership-title">Liderança experiente.<br>Visão de longo prazo.</h2></div>
+        <p class="intro-copy">À frente da Collar Capital, Dante Sena e Paulo Casimiro combinam experiência, estratégia e alinhamento para entregar as melhores soluções aos nossos clientes.</p>
+      </div>
+      <div class="leaders-grid">
+        <article class="leader reveal"><img class="leader-photo" src="images/figma/dante.png" alt="Dante Sena" width="240" height="360"><div class="leader-copy"><h3>Dante Sena</h3><p class="role">CEO</p><a class="linkedin" href="https://www.linkedin.com/company/collarcapital" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn da Collar Capital"><img src="images/figma/linkedin.svg" alt="" width="12" height="12"></a><div class="bio"><p>Mais de 15 anos de experiência no mercado financeiro, com foco em investimentos e gestão de patrimônio.</p><p>Especialista em alocação de ativos, estratégia de investimentos e planejamento financeiro.</p><p>Passagens por instituições de referência no mercado, com atuação em private banking e wealth management.</p><p>Formado em Administração de Empresas e com certificações ANBIMA (CEA) e CNPI.</p></div></div></article>
+        <span class="leaders-divider" aria-hidden="true"></span>
+        <article class="leader reveal"><img class="leader-photo" src="images/figma/paulo.png" alt="Paulo Casimiro" width="240" height="360"><div class="leader-copy"><h3>Paulo Casimiro</h3><p class="role">CEO</p><a class="linkedin" href="https://www.linkedin.com/company/collarcapital" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn da Collar Capital"><img src="images/figma/linkedin.svg" alt="" width="12" height="12"></a><div class="bio"><p>Mais de 15 anos de experiência no mercado financeiro e de capitais.</p><p>Atuação sólida em estruturação de operações, M&amp;A, crédito e mercado de capitais.</p><p>Passagens pelo BTG Pactual, com foco em Investment Banking.</p><p>Formado em Administração de Empresas pela FGV-EAESP.</p></div></div></article>
+      </div>
+      <div class="bottom-glow" aria-hidden="true"></div>
+    </section>
+  </main>
+  <div class="toast" role="status" aria-live="polite" data-toast>Área do cliente em breve.</div>
+  <script src="script.js"></script>
 </body>
 </html>
